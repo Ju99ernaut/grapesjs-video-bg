@@ -1,9 +1,10 @@
 # Grapesjs Video Bg
 
-Video background component for `grapesjs`
+Video background component for `grapesjs` based on [bideo](https://github.com/rishabhp/bideo.js)
 
 ### WIP
-Video background and mobile buttons not working in canvas but work once project is published
+Video background and mobile buttons not working in canvas but work once project is published.
+Npm package not yet available.
 
 ### HTML
 ```html
