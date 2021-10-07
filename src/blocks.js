@@ -1,6 +1,4 @@
-import {
-  cmpType
-} from './consts';
+import { cmpType } from './consts';
 
 export default (editor, opts = {}) => {
   const bm = editor.BlockManager;

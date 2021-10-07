@@ -1,15 +1,9 @@
-import {
-  cmpType
-} from './consts';
+import { cmpType } from './consts';
 
 export default (editor, opts = {}) => {
   const domc = editor.DomComponents;
-  const {
-    prefix
-  } = opts;
-  const {
-    keys
-  } = Object;
+  const { prefix } = opts;
+  const { keys } = Object;
 
   const idTrait = {
     name: 'id',
@@ -50,34 +44,35 @@ export default (editor, opts = {}) => {
           overflow: 'hidden',
         },
         components: [{
-            type: 'video',
-            autoplay: true,
-            loop: true,
-            controls: false,
-            attributes: {
-              muted: true,
-              class: prefix + 'background_video'
-            }
-          }, {
-            tagName: 'div',
-            name: 'Overlay',
-            attributes: {
-              class: prefix + 'overlay'
-            }
-          }, {
-            tagName: 'div',
-            name: 'Controls',
-            attributes: {
-              class: prefix + 'video_controls'
-            },
-            components: `<span data-gjs-name="Play" class="${prefix}play">
+          type: 'video',
+          autoplay: true,
+          loop: true,
+          controls: false,
+          attributes: {
+            muted: true,
+            class: prefix + 'background_video'
+          }
+        }, {
+          tagName: 'div',
+          name: 'Overlay',
+          attributes: {
+            class: prefix + 'overlay'
+          }
+        }, {
+          tagName: 'div',
+          name: 'Controls',
+          attributes: {
+            class: prefix + 'video_controls'
+          },
+          components: `<span data-gjs-name="Play" class="${prefix}play">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAQlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACO4fbyAAAAFXRSTlMAFAn64NVvPvTOwK+dSOpfLI5/UyGtFMIbAAABGElEQVR42u3YW2rDMBSE4bF8t+vEvcz+t1oolOOmTRNBpHnIfCv44QwYC2ZmZmZmZmZmlmXsp26AzsQvXYLGzG8LFBIPFIdY+cOO2njhhMr4y4qqGDRT4J8+UA2DZgoMminwujNqYNBMgf/qUBxveEFhDJop8A4NCmLQTIFBMwXe6x1lMGimwAw9CmDQTIGZNnUA20YUEHpVQGjUAUzqAMoDNnXAog6Y1QEDnnyEozjgDG1AgjRgAJQBC6AMmBKkATugDHhDCaLjh9zjiwJGFCM6fsj98lYPaBPKEhw/I+AV5fG6HjXk/oJVC9hQiej4QXT8IDp+EB0/zJdvMLXtPOgg0B7fHSTiJVJlJXkaYWZmZmZmZmb2SJ9HdKuRZONjqwAAAABJRU5ErkJggg==">
           </span>
           <span data-gjs-name="Pause" class="${prefix}pause">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAASVJREFUeJzt0sEJwlAARMFvWgmpQ61crSOklWAFXkIgyJu5L+zhjQEAAAAAAAAAAAAAAPyr29UHflmW5T3GuB/Z7vv+3LbtfeafeZ4f0zS9Ds4/67o+zvxzlunqA1xLAHECiBNAnADiBBAngDgBxAkgTgBxAogTQJwA4gQQJ4A4AcQJIE4AcQKIE0CcAOIEECeAOAHECSBOAHECiBNAnADiBBAngDgBxAkgTgBxAogTQJwA4gQQJ4A4AcQJIE4AcQKIE0CcAOIEECeAOAHECSBOAHECiBNAnADiBBAngDgBxAkgTgBxAogTQJwA4gQQJ4A4AcQJIE4AcQKIE0CcAOIEECeAOAHECSBOAHECiBNAnADiBBAnAAAAAAAAAAAAAAAAgD/1Bbv/DaDuMzHdAAAAAElFTkSuQmCC">
           </span>`
-          },
-          `<style>
+        },
+        ],
+        styles: `
           .${prefix}background_video {
             position: relative;
             top: 50%; left: 50%;
@@ -93,20 +88,12 @@ export default (editor, opts = {}) => {
             transform: translate(-50%, 0);
           }
       
-          .${prefix}play img {
-            width: 100px;
-          }
-          .${prefix}pause img {
-            width: 90px;
-          }
-          .${prefix}pause {
-            display: none;
-          }
+          .${prefix}play img { width: 100px; }
+          .${prefix}pause img { width: 90px; }
+          .${prefix}pause { display: none; }
       
           @media (min-width: 768px) {
-            .${prefix}video_controls {
-              display: none;
-            }
+            .${prefix}video_controls { display: none; }
           }
       
           .${prefix}overlay {
@@ -114,8 +101,7 @@ export default (editor, opts = {}) => {
             top: 0; right: 0; left: 0; bottom: 0;
             background-color: rgba(0,0,0,0.5);
           }
-        </style>`
-        ],
+        `,
         script() {
           // Component
           const el = this;
